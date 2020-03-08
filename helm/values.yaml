@@ -1,0 +1,63 @@
+# Helper Variables #
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  create: true
+  name:
+####################
+application: 
+  name: api-client
+  version: v1
+replicas:
+  min: __{minReplicas}__
+  max: __{maxReplicas}__
+scaling:
+  targetCpuUsagePercentage: __{targetCpu}__
+  targetMemoryUsagePercentage: __{targetMemory}__
+networking:
+  port: __{port}__
+image:
+  repository: __{repository}__
+  tag: __{imageTag}__
+limits:
+  memory: __{memory}__
+  cpu: __{cpu}__
+checks:
+  ready:
+    path: __{readyPath}__
+    port: __{readyPort}__
+  live:
+    path: __{livePath}__
+    port: __{livePort}__
+external:
+  hosts:
+    - "*.amazonaws.com"
+  ports:
+    - number: 443
+      protocol: TLS
+      name: https
+    - number: 80
+      protocol: HTTP
+      name: http
+environmentVariables:
+  plain:
+    - name: APP_PORT
+      value: __{port}__
+    - name: APP_ENV
+      value: __{env}__
+    - name: MONGO_HOST
+      value: __{mongoHost}__
+    - name: MONGO_PORT
+      value: __{mongoPort}__
+    - name: MONGO_USER
+      value: __{mongoUser}__
+    - name: MONGO_PASS
+      value: __{mongoPass}__
+    - name: MONGO_DB
+      value: __{mongoDb}__
+    - name: SERVICE_HOSTNAME
+      value: __{serviceHostname}__
+    - name: SERVICE_PORT
+      value: __{servicePort}__
+    - name: SERVICE_TYPE
+      value: __{serviceType}__

@@ -1,0 +1,107 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Swagger for a LUIZA-LABS-EXAM, Client.",
+        "version": "1.0.0",
+		"title": "Swagger LUIZA-LABS-EXAM, Client.",
+        "contact": {
+            "email": "vgc.carneiro@gmail.com"
+        }
+    },
+    "schemes": ["http"],
+    "tags": [{
+        "name": "client",
+        "description": "Everything related to a clients"
+    }],
+    "paths": {
+        "/{id}": {
+            "get": {
+                "tags": ["client"],
+                "summary": "Consult client by id",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "name": "token",
+                    "in": "header",
+                    "description": "Token with JWT",
+                    "required": true,
+                    "type": "string"
+                },{
+					"name": "id",
+                    "in": "path",
+                    "description": "Hash id of a client on MongoDB.",
+                    "required": true,
+                    "type": "string"
+				}],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/client"
+                        }
+					}
+                }
+			}
+		},
+		"/email/{email}": {
+            "get": {
+                "tags": ["client"],
+                "summary": "Consult client by email",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "name": "token",
+                    "in": "header",
+                    "description": "Token with JWT",
+                    "required": true,
+                    "type": "string"
+                },{
+					"name": "email",
+                    "in": "path",
+                    "description": "Email of a client on MongoDB.",
+                    "required": true,
+                    "type": "string"
+				}],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/client"
+                        }
+					}
+                }
+			}
+		}
+	},
+	"definitions": {
+		"client": {
+			"type": "object",
+			"properties": {
+				"_id": {
+					"type": "string",
+					"description": "Hash do cliente."
+				},
+				"name": {
+					"type": "string",
+					"description": "Nome do cliente."
+				},
+				"email": {
+					"type": "string",
+					"description": "Email do client."
+				},
+				"active": {
+					"type": "boolean",
+					"description": "boolean para determinar se o cliente está ativo ou não"
+				},
+				"updatedAt": {
+					"type": "string",
+					"description": "Data de atualização"
+				},
+				"createdAt": {
+					"type": "string",
+					"description": "Data de criação"
+				}
+			}
+        }
+	},
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}

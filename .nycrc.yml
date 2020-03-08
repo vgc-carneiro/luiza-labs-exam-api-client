@@ -1,0 +1,15 @@
+all: true
+extension: [
+  '.js'
+]
+include: [
+  'src/components/**/*Controller.js',
+  'src/components/**/*controller.js',
+]
+exclude: [
+  # '**/aws/*.js',
+  # '**/exemplos/*.js',
+  # '**/*.spec.js',
+  # '**/*healthCheck.js',
+  # '**/*index.js',
+]
