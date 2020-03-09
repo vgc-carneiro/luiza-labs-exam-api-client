@@ -11,7 +11,7 @@ function doAuth(token){
 		const options = {
 			hostname: env.services.hostname,
 			port: env.services.port,
-			path: '/' + token,
+			path: '/luiza-labs-exam/auth/' + token,
 			method: 'GET'
 		};
 		const req = http.request(options, (res) => {
