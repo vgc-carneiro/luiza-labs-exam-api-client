@@ -20,11 +20,7 @@ function doAuth(token){
 			}else{
 				res.on('data', (d) => {
 					let jsonAuth = JSON.parse(Buffer.from(d).toString());
-					if(jsonAuth.role === 'consulter'){
-						resolve(jsonAuth);
-					}else{
-						reject({code: 401, message: 'Sem autorização para esta operação!'});
-					}
+					resolve(jsonAuth);
 				});
 			}
 		});
