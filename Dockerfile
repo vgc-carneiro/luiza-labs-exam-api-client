@@ -10,7 +10,7 @@ COPY package-lock.json .
 
 RUN npm install --production && npm cache clean --force
 
-EXPOSE 3001
+EXPOSE 3002
 
 COPY . .
 
